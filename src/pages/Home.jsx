@@ -7,7 +7,7 @@ import axios from 'axios'
 
 export default function Home() 
 {
-    const request = useLocation().search.split('?').pop()    
+    const request = useLocation().pathname.split('/').pop() 
 
     const{inView,ref}=useInView()
     const{data,status,fetchNextPage}=useInfiniteQuery(['content',request],fetchContent,
@@ -34,7 +34,7 @@ export default function Home()
         pageParam=0
       }=props
   
-      const res = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=li8eH5l9MR7q04OEiQL98HXAUDKtuvhC&${queryKey[1]}&offset=${pageParam}&limit=25`)
+      const res = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=li8eH5l9MR7q04OEiQL98HXAUDKtuvhC&q=${queryKey[1]}&offset=${pageParam}&limit=25`)
       return res.data
     }
   

@@ -7,16 +7,22 @@ export default function Header({setSearch})
 
   function searchContent(e)
   {
-    navigate(`/gif?q=${e.target.value}`)
+    e.preventDefault()
+    console.log(e.target)
+    const value = e.target.querySelector('.searchInput').value
+    navigate(`/search/${value}`)
   }
 
   return (
     <header>
-      <Link to='/'>fdfd</Link>
+      <Link to="/">fdfd</Link>
       <nav>
-        <input type="text" className='block bg-pink-50'
-         onChange={searchContent}
-        />
+        <form onSubmit={searchContent}>
+          <input
+            type="text"
+            className="searchInput block bg-pink-50"
+          />
+        </form>
       </nav>
     </header>
   );

@@ -7,12 +7,13 @@ function App()
 {
   return (
     <>
-      <Header/>
+      <Header />
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="/gif" element={<Home />} />
-          <Route path="/sticker" element={<Home />} />
+          <Route path="/search" element={<Home />}>
+            <Route path=":id" element={<Home />} />
+          </Route>
         </Route>
       </Routes>
     </>
