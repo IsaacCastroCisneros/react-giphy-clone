@@ -11,6 +11,7 @@ function App()
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
+          <Route path='/no' element={<span>spaaaan</span>} />
           <Route path="/search" element={<Home />}>
             <Route path=":id" element={<Home />} />
           </Route>

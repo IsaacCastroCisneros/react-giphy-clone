@@ -10,7 +10,14 @@ export default function Home()
     const request = useLocation().pathname.split('/').pop() 
 
     const{inView,ref}=useInView()
-    const{data,status,fetchNextPage}=useInfiniteQuery(['content',request],fetchContent,
+    const{
+         data,
+         status,
+         fetchNextPage,
+         isFetchingNextPage,
+         hasNextPage,
+         isFetching
+         }=useInfiniteQuery(['content',request],fetchContent,
     {
       getNextPageParam:(page,allPage)=>
       {
@@ -44,7 +51,9 @@ export default function Home()
       999:3,
       540:2
     }
-  
+
+    console.log(isFetchingNextPage)
+
     return (
       <>
         <main className="w-[72rem] max-w-[100%] mx-auto px-[2rem]">
@@ -70,6 +79,7 @@ export default function Home()
             })
             }
           </Masonry>
+          {isFetching && <span className='text-[10rem] text-black'>...loading</span>}
         </main>
         <footer ref={ref}>fff</footer>
       </>
