@@ -1,7 +1,7 @@
 import React,{ useState,useEffect,useRef } from 'react'
 import {Route,Routes} from 'react-router-dom'
 import Header from './components/Header';
-import Home from './pages/home'
+import Home from './pages/Home'
 
 function App() 
 {
