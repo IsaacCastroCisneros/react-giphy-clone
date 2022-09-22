@@ -16,6 +16,7 @@ export default function Header({setSearch})
   return (
     <header>
       <Link to="/">fdfd</Link>
+      <Link to="/no">yo</Link>
       <nav>
         <form onSubmit={searchContent}>
           <input
